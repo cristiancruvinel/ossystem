@@ -1,0 +1,144 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Espaça o logo e o container dos links */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 20px;
+    background-color: rgb(1, 72, 87);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.header a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.header a p {
+    margin: 0; /* Remove a margem do parágrafo */
+    display: inline; /* Faz o parágrafo agir como texto inline */
+}
+
+.header .links {
+    display: flex; /* Agrupa os links */
+    gap: 15px; /* Adiciona espaço entre os links */
+}
+
+.header a:hover {
+    text-decoration: underline;
+    color: #4facfe;
+}
+
+.footer {
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+    background-color: rgb(1, 72, 87);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.header h1, .footer p {
+    padding: 10px;
+    margin: 0;
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Muda a direção das divs para coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    flex-grow: 1; /* Permite que a div container cresça entre o header e o footer */
+    margin: 80px 0 60px; /* Adiciona espaço para evitar sobreposição do header e footer */
+}
+
+.top-row, .bottom-row {
+    padding: 10px;
+    display: flex;
+    justify-content: center; /* Centraliza os cards na linha */
+    width: 100%; /* Faz as linhas ocuparem toda a largura disponível */
+    margin-bottom: 30px; /* Aumenta o espaço entre as linhas */
+}
+
+.top-row{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.card {
+    background-color: rgba(44, 206, 235, 0.9);
+    width: 200px;
+    height: 240px; /* Aumenta a altura para acomodar a imagem e o texto */
+    margin: 20px; /* Aumenta a margem entre as cards */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    display: flex; /* Para usar o flexbox dentro da card */
+    flex-direction: column; /* Muda a direção dos itens para coluna */
+    justify-content: flex-start; /* Justifica o conteúdo no início */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+.card-image {
+    width: 80%; /* Ajusta a largura da imagem */
+    margin-top: 10px; /* Margem acima da imagem */
+}
+
+.card p {
+    margin: 10px 0; /* Margem acima e abaixo do texto */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card {
+    background-color: rgba(44, 206, 235, 0.9);
+    width: 200px;
+    height: 240px; /* Aumenta a altura para acomodar a imagem e o texto */
+    margin: 20px; /* Aumenta a margem entre as cards */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    display: flex; /* Para usar o flexbox dentro da card */
+    flex-direction: column; /* Muda a direção dos itens para coluna */
+    justify-content: flex-start; /* Justifica o conteúdo no início */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
