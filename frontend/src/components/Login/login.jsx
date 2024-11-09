@@ -49,7 +49,7 @@ function Login() {
                     <button onClick={handleCadastroClick}>Cadastre-se</button>
                 </p>
             </div>
-
+            
             <footer className="footer">
                 <p>© 2024 / Desenvolvido por Alexandre, Cristian e Luis</p>
             </footer>
