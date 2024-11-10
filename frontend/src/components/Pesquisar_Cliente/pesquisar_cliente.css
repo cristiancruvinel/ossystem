@@ -1,0 +1,93 @@
+.pesquisar-cliente-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Garantir que ocupe toda a altura da tela */
+    margin: 0;
+  }
+  
+  .pesquisa-card {
+    background-color: rgba(44, 206, 235, 0.9);
+    width: 500px; /* Largura maior para o card */
+    height: 250px; /* Altura do card */
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center;
+    padding: 20px;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  
+  .pesquisa-card h2 {
+    margin-bottom: 15px;
+  }
+  
+  .pesquisa-card input {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .pesquisa-card button {
+    padding: 8px 16px;
+    background-color: rgb(1, 72, 87);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .pesquisa-card button:hover {
+    background-color: #4facfe;
+  }
+  
+  /* Card de resultados */
+  .resultados {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Remove o espaçamento entre os cards */
+    width: 100%;
+    align-items: center;
+  }
+  
+  .resultado-card {
+    background-color: #dcdcdc; /* Cor cinza para os cards */
+    width: 500px; /* Largura igual à do quadro azul */
+    padding: 10px; /* Menor altura para o card */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 0px; /* Removendo o espaçamento entre os cards */
+  }
+  
+  .resultado-card:hover {
+    background-color: #b0b0b0; /* Cor cinza mais escuro no hover */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .pesquisa-card {
+      width: 350px; /* Menor largura em telas menores */
+      height: 220px; /* Menor altura em telas menores */
+    }
+  
+    .resultado-card {
+      width: 350px; /* Ajustar a largura dos cards de resultados */
+      padding: 8px; /* Ajustar a altura do card */
+    }
+  }
+  
