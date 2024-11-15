@@ -11,18 +11,18 @@ def get_ordens_de_servico():
 
 @ordemDeServico_routes.route('/ordens-de-servico/<int:id>', methods=['GET'])
 def get_ordem_de_servico(id_ordem_de_servico):
-    ordem = ordemDeServico.query.get_or_404(id_ordem_de_servico)
-    return jsonify(ordem.to_dict())
+    ordens = ordemDeServico.query.get_or_404(id_ordem_de_servico)
+    return jsonify(ordens.to_dict())
 
 @ordemDeServico_routes.route('/ordens-de-servico', methods=['POST'])
 def create_ordem_de_servico():
     data = request.json
 
-    cliente = cliente.query.get(data['id_cliente'])
+    cliente = cliente.Cliente.query.get(data['id_cliente'])
     if not cliente: 
         return jsonify({'error': 'Cliente não encontrado'}), 404
     
-    usuario = usuario.query.get(data['id_usuario'])
+    usuario = usuario.Usuario.query.get(data['id_usuario'])
     if not usuario: 
         return jsonify({'error': 'Usuário não encontrado'}), 404
 

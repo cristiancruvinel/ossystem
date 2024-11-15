@@ -5,14 +5,14 @@ cliente_routes = Blueprint('cliente', __name__)
 
 def validar_localidade(estado, cidade):
     url_estado = f"https://servicodados.ibge.gov.br/api/v2/malhas/BR/{estado}"
-    response_estado = requests.get(url_estado)
+    response_estado = request.get(url_estado)
     
     if response_estado.status_code != 200:
         return False  
     
     
     url_cidade = f"https://servicodados.ibge.gov.br/api/v2/localidades/municipios/{cidade}"
-    response_cidade = requests.get(url_cidade)
+    response_cidade = request.get(url_cidade)
     
     if response_cidade.status_code != 200:
         return False 
@@ -26,7 +26,7 @@ def get_clientes():
 
 @cliente_routes.route('/clientes/<int:id>', methods=['GET'])
 def get_cliente(id_cliente):
-    cliente = cliente.query.get_or_404(id_cliente)
+    clientes = cliente.query.get_or_404(id_cliente)
     return jsonify(cliente.to_dict())
 
 @cliente_routes.route('/clientes', methods=['POST'])

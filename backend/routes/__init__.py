@@ -5,9 +5,9 @@ from .produto_routes import produto_routes
 from .usuario_routes import usuario_routes
 
 def init_app(app):
-    app.register_blueprint(cliente_routes, url_prefix='/api/clientes')
-    app.register_blueprint(ordemDeServico_routes, url_prefix='/api/ordemDeServico')
-    app.register_blueprint(ordemProduto_routes, url_prefix='/api/ordemProduto')
-    app.register_blueprint(produto_routes, url_prefix='/api/produto')
-    app.register_blueprint(usuario_routes, url_prefix='/api/usuario')
+    app.register_blueprint(cliente_routes, url_prefix='/api')
+    app.register_blueprint(ordemDeServico_routes, url_prefix='/api')
+    app.register_blueprint(ordemProduto_routes, url_prefix='/api')
+    app.register_blueprint(produto_routes, url_prefix='/api')
+    app.register_blueprint(usuario_routes, url_prefix='/api')
 

@@ -6,7 +6,7 @@ class Usuario(db.Model):
     
     id_usuario = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True, nullable=False)
-    tipo_usuario = db.Column(db.String(20))
+    tipo_usuario = db.Column(db.String(100))
     senha = db.Column(db.String(255))
 
     ordens_criadas = db.relationship('OrdemDeServico', back_populates='usuario')
