@@ -5,7 +5,7 @@ produto_routes = Blueprint('produto', __name__)
 
 @produto_routes.route('/produtos', methods=['GET'])
 def get_produtos():
-    produtos = produtos.query.all()
+    produtos = produto.query.all()
     return jsonify([produto.to_dict() for produto in produtos])
 
 @produto_routes.route('/produtos/<int:id>', methods=['GET'])

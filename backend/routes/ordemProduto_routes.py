@@ -5,8 +5,8 @@ ordemProduto_routes = Blueprint('ordemProduto', __name__)
 
 @ordemProduto_routes.route('/ordens_produtos', methods=['GET'])
 def get_ordens_produtos():
-    ordens_produtos = ordemProduto.query.all()
-    return jsonify([ordem.to_dict() for ordem in ordens_produtos])
+    ordem_produtos = ordemProduto.query.all()
+    return jsonify([ordem.to_dict() for ordem in ordem_produtos])
 
 @ordemProduto_routes.route('/ordens_produtos/<int:id>', methods=['GET'])
 def get_ordem_produto(id_ordem_produto):
