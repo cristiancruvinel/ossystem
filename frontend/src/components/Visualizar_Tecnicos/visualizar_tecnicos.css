@@ -1,0 +1,80 @@
+.visualizar-tecnicos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.tecnicos-card {
+  background-color: rgba(44, 206, 235, 0.9);
+  width: 500px; /* Mantém a largura fixa */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tecnicos-card h2 {
+  margin-bottom: 15px;
+}
+
+.tecnicos-card input {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.tecnicos-card button {
+  padding: 8px 16px;
+  background-color: rgb(1, 72, 87);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tecnicos-card button:hover {
+  background-color: #4facfe;
+}
+
+.resultados-container {
+  margin-top: 20px;
+  background-color: white; /* Fundo branco */
+  border-radius: 8px;
+  width: 100%; /* Igual à largura do cartão */
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-height: 200px; /* Altura máxima */
+  overflow-y: auto; /* Habilita rolagem se necessário */
+  box-sizing: border-box;
+}
+
+.tecnico-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tecnico-item:last-child {
+  margin-bottom: 0; /* Remove margem do último item */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .tecnicos-card {
+    width: 350px;
+  }
+}
