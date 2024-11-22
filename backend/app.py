@@ -1,17 +1,12 @@
 from flask import Flask, jsonify
-from flask_cors import CORS
-from config import Config
-from models import db, init_db
-from routes import init_app
-
+from flask_cors import CORS  # Importa o CORS
 
 app = Flask(__name__)
-app.config.from_object(Config)
-CORS(app)
+CORS(app)  # Adiciona o CORS ao app Flask
 
-init_db(app)
+@app.route('/api/hello')
+def hello():
+    return jsonify(message="Hello from Flask!")
 
-init_app(app)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
