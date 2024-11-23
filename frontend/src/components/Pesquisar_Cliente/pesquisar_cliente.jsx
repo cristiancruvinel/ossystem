@@ -24,9 +24,9 @@ const PesquisarCliente = () => {
     setUsuarios(clientes);
   };
 
-  const handleUserClick = (id) => {
+  const handleUserClick = (nome, id) => {
     
-    navigate(`/detalhes_usuario/${id}`);
+    navigate(`/editar_cliente/${id}/${nome}`);
   };
 
   return (
@@ -58,9 +58,9 @@ const PesquisarCliente = () => {
       <div className="resultados">
         {usuarios.map((usuario) => (
           <div
-            key={usuario.id}
+            key={[usuario.id, usuario.nome]}
             className="resultado-card"
-            onClick={() => handleUserClick(usuario.id)}
+            onClick={() => handleUserClick(usuario.nome, usuario.id)}
           >
             <p>{usuario.nome}</p>
           </div>

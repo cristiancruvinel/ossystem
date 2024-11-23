@@ -6,7 +6,7 @@ class Produto(db.Model):
     
     id_produto = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(100))
-    preco = db.Column(db.DECIMAL(10, 2))
+    preco = db.Column(db.DECIMAL(8, 2))
     tipo_produto = db.Column(db.String(50))
 
     ordens = db.relationship('OrdemProduto', back_populates='produto')

@@ -28,10 +28,29 @@ function CadastroProdutoServico() {
     return `R$ ${floatValue.replace('.', ',')}`;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setMensagem('Produto ou serviço criado com sucesso!');
-    setTimeout(() => navigate('/Produtos_Servicos/produtos_servicos'), 2000);
+    try{
+      const response = await fetch('http://localhost:5000/api/produtos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData,
+          valor: parseFloat(formData.valor.replace('R$', '').replace(',', '.').trim())  
+        })
+      });
+      if (response.ok) {
+        setMensagem('Produto cadastrado com sucesso!');
+        setFormData({ nome: '', valor: '', tipo_produto: '' });
+      } else {
+        setMensagem('Erro ao cadastrar produto.');
+      }
+    } catch (error) {
+      console.error('Erro ao cadastrar produto:', error);
+      setMensagem('Erro ao cadastrar produto.');
+    }
   };
 
   const isFormValid = formData.nome && formData.valor;
