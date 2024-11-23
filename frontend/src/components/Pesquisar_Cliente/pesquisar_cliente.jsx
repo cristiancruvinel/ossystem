@@ -7,18 +7,26 @@ const PesquisarCliente = () => {
   const [pesquisa, setPesquisa] = useState('');
   const navigate = useNavigate();
 
-  const handleSearch = () => {
-    // Simular a pesquisa de usuários
-    const resultados = [
-      { id: 1, nome: 'João Silva' },
-      { id: 2, nome: 'Maria Souza' },
-      { id: 3, nome: 'Carlos Oliveira' },
-    ];
-    setUsuarios(resultados);
+  const buscarCliente = async (nome) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/clientes?nome=${nome}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Erro ao buscar clientes: ', error);
+      return [];
+    }
+  };
+  
+  
+  const handleSearch = async () => {
+    const clientes = await buscarCliente(pesquisa);
+    setUsuarios(clientes);
   };
 
   const handleUserClick = (id) => {
-    navigate(`/Detalhes_Usuario/detalhes_usuario/${id}`);
+    
+    navigate(`/detalhes_usuario/${id}`);
   };
 
   return (

@@ -86,6 +86,7 @@ function Cadastro() {
                 {/* Feedback */}
                 <div id="feedback" className="feedback">
                     {feedback}
+                    
                 </div>
             </div>
 

@@ -1,46 +1,51 @@
 from flask import Blueprint, request, jsonify
+import requests
 from models import db, cliente
 
 cliente_routes = Blueprint('cliente', __name__)
 
-def validar_localidade(estado, cidade):
-    url_estado = f"https://servicodados.ibge.gov.br/api/v2/malhas/BR/{estado}"
-    response_estado = request.get(url_estado)
-    
-    if response_estado.status_code != 200:
-        return False  
-    
-    
-    url_cidade = f"https://servicodados.ibge.gov.br/api/v2/localidades/municipios/{cidade}"
-    response_cidade = request.get(url_cidade)
-    
-    if response_cidade.status_code != 200:
-        return False 
-    
-    return True 
+@cliente_routes.route('/estados', methods=['GET'])
+def listar_estados():
+    url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+    response = requests.get(url)
+    if response.status_code != 200:
+        return jsonify({'error': 'Erro ao buscar estados'}), 500
+    estados = response.json()
+    return jsonify(estados)
+
+@cliente_routes.route('/cidades/<estado_id>', methods=['GET'])
+def listar_cidades(estado_id):
+    url = f"https://servicodados.ibge.gov.br/api/v1/localidades/estados/{estado_id}/municipios"
+    response = requests.get(url)
+    if response.status_code != 200:
+        return jsonify({'error': 'Erro ao buscar cidades'}), 500
+    cidades = response.json()
+    return jsonify(cidades)
+
 @cliente_routes.route('/clientes', methods=['GET'])
 def get_clientes():
-    clientes = cliente.query.all()
-    return jsonify([cliente.to_dict() for cliente in clientes])
+    nome = request.args.get('nome')
+    if nome:
+        cliente_instance = cliente.Cliente.query.filter(cliente.Cliente.nome.ilike(f'%{nome}%')).all()
+    else:
+        cliente_instance = cliente.Cliente.query.all()
+    return jsonify([cliente.to_dict() for cliente in cliente_instance])
 
 
 @cliente_routes.route('/clientes/<int:id>', methods=['GET'])
 def get_cliente(id_cliente):
-    clientes = cliente.query.get_or_404(id_cliente)
-    return jsonify(cliente.to_dict())
+    cliente_instance = cliente.query.get_or_404(id_cliente)
+    return jsonify(cliente_instance.to_dict())
 
 @cliente_routes.route('/clientes', methods=['POST'])
 def create_cliente():
     data = request.json
 
-    if cliente.query.filter_by(cpf_cnpj=data['cpf_cnpj']).first():
+    if cliente.Cliente.query.filter_by(cpf_cnpj=data['cpfCnpj']).first():
         return jsonify({'error': 'CPF/CNPJ já cadastrado'}), 400
 
-    if not validar_localidade(data['estado'], data['cidade']):
-       return jsonify({'error': 'Cidade ou estado inválido'}), 400
-
-    cliente = cliente(
-        cpf_cnpj=data['cpf_cnpj'],
+    cliente_instance = cliente.Cliente(
+        cpf_cnpj=data['cpfCnpj'],
         nome=data['nome'],
         email=data['email'],
         telefone=data['telefone'],
@@ -49,10 +54,10 @@ def create_cliente():
         estado=data['estado']
     )
 
-    db.session.add(cliente)
+    db.session.add(cliente_instance)
     db.session.commit()
 
-    return jsonify(cliente.to_dict()), 201  
+    return jsonify(cliente_instance.to_dict()), 201  
 
 @cliente_routes.route('/clientes/<int:id>', methods=['PUT'])
 def update_cliente(id_cliente):
