@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Usando useNavigate no lugar de useHistory
+import { useNavigate } from 'react-router-dom';
 import './pesquisar_cliente.css';
 
 const PesquisarCliente = () => {
@@ -34,7 +34,7 @@ const PesquisarCliente = () => {
       <header className="header">
         <h1>Logo:</h1>
         <div className="links">
-          <a href="/Home/home">
+          <a href="/home">
             <p>HOME</p>
           </a>
           <a href="/login">

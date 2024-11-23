@@ -1,0 +1,6 @@
+Dependencias PIP:
+pip install flask
+pip install flask-sqlalchemy
+pip install psycopg2
+pip install python-dotenv
+pip install flask-cors
