@@ -20,7 +20,7 @@ const CriarOS = () => {
             {/* Main Content */}
             <div className="container">
                 <div className="top-row">
-                    <a href="/adicionar-cliente" className="card">
+                    <a href="/pesquisar_cliente" className="card">
                         <img 
                             src="/imagens/clientes.png" 
                             alt="Adicionar Cliente" 
@@ -28,7 +28,7 @@ const CriarOS = () => {
                         />
                         <p>Adicionar Cliente</p>
                     </a>
-                    <a href="/cadastrar-novo-cliente" className="card">
+                    <a href="/cadastro_cliente" className="card">
                         <img 
                             src="/imagens/adicionar_cliente.png" 
                             alt="Cadastrar Novo Cliente" 

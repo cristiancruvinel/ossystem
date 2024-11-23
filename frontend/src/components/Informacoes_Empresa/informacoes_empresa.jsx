@@ -63,10 +63,10 @@ function InformacoesEmpresa() {
       <header className="header">
         <h1>Logo:</h1>
         <div className="links">
-          <a href="/Home/home">
+          <a href="/home">
             <p>HOME</p>
           </a>
-          <a href="/Login/login">
+          <a href="/login">
             <p>LOGOUT</p>
           </a>
         </div>

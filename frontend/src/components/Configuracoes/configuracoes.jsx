@@ -11,7 +11,7 @@ const CriarOS = () => {
                     <a href="/home">
                         <p>HOME</p>
                     </a>
-                    <a href="/Login/login">
+                    <a href="/login">
                         <p>LOGOUT</p>
                     </a>
                 </div>
@@ -20,7 +20,7 @@ const CriarOS = () => {
             {/* Main Content */}
             <div className="container">
                 <div className="top-row">
-                    <a href="/..." className="card">
+                    <a href="/informacoes_empresa" className="card">
                         <img 
                             src="/imagens/informacoes_da_empresa.png" 
                             alt="Informacoes da empresa" 
