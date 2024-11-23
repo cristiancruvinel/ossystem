@@ -6,14 +6,12 @@ const VisualizarTecnicos = () => {
   const [pesquisa, setPesquisa] = useState('');
 
   const handleSearch = () => {
-    // Dados simulados
     const resultados = [
       { id: 1, nome: 'Alexandre', email: 'alexandre@email.com' },
       { id: 2, nome: 'Cristian', email: 'cristian@email.com' },
       { id: 3, nome: 'Luis', email: 'luis@email.com' },
     ];
 
-    // Filtrando pelo nome pesquisado
     const filtrados = resultados.filter((tecnico) =>
       tecnico.nome.toLowerCase().includes(pesquisa.toLowerCase())
     );

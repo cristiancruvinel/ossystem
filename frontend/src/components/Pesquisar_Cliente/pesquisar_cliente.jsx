@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Usando useNavigate no lugar de useHistory
+import { useNavigate } from 'react-router-dom';
 import './pesquisar_cliente.css';
 
 const PesquisarCliente = () => {
@@ -18,7 +18,6 @@ const PesquisarCliente = () => {
   };
 
   const handleUserClick = (id) => {
-    // Redirecionar para os detalhes do usuário
     navigate(`/Detalhes_Usuario/detalhes_usuario/${id}`);
   };
 

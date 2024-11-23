@@ -1,5 +1,5 @@
 import React from 'react';
-import './ordem_servico.css'; // Importando o CSS
+import './ordem_servico.css';
 
 const OSPage = () => {
   return (

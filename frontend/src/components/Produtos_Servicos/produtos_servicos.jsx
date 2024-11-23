@@ -1,5 +1,5 @@
 import React from 'react';
-import './produtos_servicos.css'; // Importe o CSS adequado para o seu componente
+import './produtos_servicos.css';
 
 const CriarOS = () => {
     return (
