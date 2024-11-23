@@ -11,7 +11,7 @@ const CriarOS = () => {
                     <a href="/home">
                         <p>HOME</p>
                     </a>
-                    <a href="/Login/login">
+                    <a href="/Login">
                         <p>LOGOUT</p>
                     </a>
                 </div>

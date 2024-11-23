@@ -28,7 +28,7 @@ const CriarOS = () => {
                         />
                         <p>Adicionar Cliente</p>
                     </a>
-                    <a href="/cadastrar-novo-cliente" className="card">
+                    <a href="/cadastro_cliente" className="card">
                         <img 
                             src="/imagens/adicionar_cliente.png" 
                             alt="Cadastrar Novo Cliente" 
