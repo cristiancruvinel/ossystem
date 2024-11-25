@@ -1,12 +1,6 @@
 {
     "builds": [{"src": "app.py", "use": "@vercel/python" }],
     "routes": [{"src": "/(.*)", "dest": "app.py" }],
-
-    "build": {
-        "env": {
-          "PG_CONFIG": "/usr/bin/pg_config"
-        }
-      }
 }
 
   
