@@ -1,0 +1,14 @@
+.vercel
+# Ignorar arquivos de cache do Python em qualquer lugar do repositório
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar ambiente virtual (se você estiver usando um)
+venv/
+.env/
+
+# Ignorar arquivos do sistema (Exemplo para macOS)
+.DS_Store
+
