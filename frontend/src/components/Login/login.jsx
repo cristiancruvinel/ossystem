@@ -5,7 +5,7 @@ import '../Login/login.css';
 function Login() {
     const [feedback, setFeedback] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
-    const navigate = useNavigate(); // Definindo a navegação
+    const navigate = useNavigate();
 
     const login = async () => {
         const username = document.getElementById('username').value;

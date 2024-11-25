@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './cadastro_cliente.css'; // Arquivo CSS específico para esta tela
 
@@ -48,13 +48,67 @@ function CadastroCliente() {
     return value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setMensagem('Cadastro realizado com sucesso!');
-    setTimeout(() => navigate('/Clientes/clientes'), 2000); // Redireciona após 2 segundos
+
+    try {
+      const response = await fetch('http://localhost:5000/api/clientes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setMensagem('Cliente cadastrado com sucesso!');
+        setFormData({
+          nome: '',
+          cpfCnpj: '',
+          telefone: '',
+          email: '',
+          endereco: '',
+          cidade: '',
+          estado: ''
+        });
+        setTimeout(() => navigate('clientes'), 2000);
+      } else {
+        const result = await response.json();
+        setMensagem(result.error || 'Erro ao cadastrar cliente');
+      }
+    } catch (error) {
+      setMensagem('Erro de conexão ao servidor');
+    }
   };
 
-  // Verifica se todos os campos estão preenchidos
+const [estados, setEstados] = useState([]);
+const [cidades, setCidades] = useState([]);
+
+useEffect(() => {
+  const fetchEstados = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/estados');
+      const data = await response.json();
+      setEstados(data);
+    } catch (error) {
+      console.error('Erro ao buscar estados:', error);
+    }
+  };
+
+  fetchEstados();
+}, []);
+
+const fetchCidades = async (estadoId) => {
+  try {
+    const response = await fetch(`http://localhost:5000/api/cidades/${estadoId}`);
+    const data = await response.json();
+    setCidades(data);
+  } catch (error) {
+    console.error('Erro ao buscar cidades:', error);
+  }
+};
+
+  
   const isFormValid = Object.values(formData).every((field) => field.trim() !== '');
 
   return (
@@ -63,10 +117,10 @@ function CadastroCliente() {
       <header className="header">
                 <h1>Logo:</h1>
                 <div className="links">
-                    <a href="/Home/home">
+                    <a href="/home">
                         <p>HOME</p>
                     </a>
-                    <a href="/Login/login">
+                    <a href="/login">
                         <p>LOGOUT</p>
                     </a>
                 </div>
@@ -99,15 +153,28 @@ function CadastroCliente() {
             <label>Endereço:</label>
             <input type="text" name="endereco" value={formData.endereco} onChange={handleChange} required />
           </div>
-          <div className="cadastro-row">
-            <div>
-              <label>Cidade:</label>
-              <input type="text" name="cidade" value={formData.cidade} onChange={handleChange} required />
-            </div>
-            <div>
-              <label>Estado:</label>
-              <input type="text" name="estado" value={formData.estado} onChange={handleChange} required />
-            </div>
+      <div className="cadastro-row">
+      <div>
+        <label>Estado:</label>
+        <select name="estado" value={formData.estado} onChange={(e) => {
+          handleChange(e);
+          fetchCidades(e.target.value);
+        }} required>
+          <option value="">Selecione o estado</option>
+          {estados.map((estado) => (
+            <option key={estado.id} value={estado.id}>{estado.nome}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label>Cidade:</label>
+        <select name="cidade" value={formData.cidade} onChange={handleChange} required>
+          <option value="">Selecione a cidade</option>
+          {cidades.map((cidade) => (
+            <option key={cidade.id} value={cidade.nome}>{cidade.nome}</option>
+          ))}
+        </select>
+      </div>
           </div>
           <button type="submit" disabled={!isFormValid}>Criar</button>
         </form>

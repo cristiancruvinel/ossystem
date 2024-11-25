@@ -5,7 +5,7 @@ import './cadastrar_produto.css';
 function CadastroProdutoServico() {
   const [formData, setFormData] = useState({
     nome: '',
-    tipo: 'Produto',  // Valor inicial
+    tipo: 'Produto',
     valor: '',
   });
   const [mensagem, setMensagem] = useState('');
@@ -15,7 +15,6 @@ function CadastroProdutoServico() {
     const { name, value } = e.target;
 
     if (name === 'valor') {
-      // Formatando o valor com R$ e vírgula para decimais
       const formattedValue = formatValor(value);
       setFormData((prevData) => ({ ...prevData, [name]: formattedValue }));
     } else {
@@ -32,10 +31,9 @@ function CadastroProdutoServico() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setMensagem('Produto ou serviço criado com sucesso!');
-    setTimeout(() => navigate('/Produtos_Servicos/produtos_servicos'), 2000); // Redireciona após 2 segundos
+    setTimeout(() => navigate('/Produtos_Servicos/produtos_servicos'), 2000);
   };
 
-  // Verifica se todos os campos estão preenchidos
   const isFormValid = formData.nome && formData.valor;
 
   return (
@@ -43,10 +41,10 @@ function CadastroProdutoServico() {
       <header className="header">
         <h1>Logo:</h1>
         <div className="links">
-          <a href="/Home/home">
+          <a href="/home">
             <p>HOME</p>
           </a>
-          <a href="/Login/login">
+          <a href="/login">
             <p>LOGOUT</p>
           </a>
         </div>

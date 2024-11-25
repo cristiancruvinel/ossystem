@@ -1,5 +1,5 @@
 import React from 'react';
-import './clientes.css'; // Importe o CSS adequado para o seu componente
+import './clientes.css';
 
 const CriarOS = () => {
     return (
@@ -8,10 +8,10 @@ const CriarOS = () => {
             <header className="header">
                 <h1>Logo:</h1>
                 <div className="links">
-                    <a href="/Home/home">
+                    <a href="/home">
                         <p>HOME</p>
                     </a>
-                    <a href="/Login/login">
+                    <a href="/login">
                         <p>LOGOUT</p>
                     </a>
                 </div>
@@ -20,7 +20,7 @@ const CriarOS = () => {
             {/* Main Content */}
             <div className="container">
                 <div className="top-row">
-                    <a href="/Cadastro_Cliente/cadastro_cliente" className="card">
+                    <a href="/cadastro_cliente" className="card">
                         <img 
                             src="/imagens/adicionar_cliente.png" 
                             alt="Adicionar Cliente" 
@@ -28,7 +28,7 @@ const CriarOS = () => {
                         />
                         <p>Cadastrar Novo Cliente</p>
                     </a>
-                    <a href="/Pesquisar_Cliente/pesquisar_cliente" className="card">
+                    <a href="/pesquisar_cliente" className="card">
                         <img 
                             src="/imagens/visualizar_clientes.png" 
                             alt="Pesquisar Cliente" 

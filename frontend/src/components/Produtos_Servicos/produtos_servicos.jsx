@@ -1,5 +1,5 @@
 import React from 'react';
-import './produtos_servicos.css'; // Importe o CSS adequado para o seu componente
+import './produtos_servicos.css';
 
 const CriarOS = () => {
     return (
@@ -20,7 +20,7 @@ const CriarOS = () => {
             {/* Main Content */}
             <div className="container">
                 <div className="top-row">
-                    <a href="/cadastrar_novo_produto" className="card">
+                    <a href="/cadastrar_produto" className="card">
                         <img 
                             src="/imagens/cadastrar_novo_produto.png" 
                             alt="Cadastrar Novo Produto" 
@@ -28,7 +28,7 @@ const CriarOS = () => {
                         />
                         <p>Cadastrar Novo Produto</p>
                     </a>
-                    <a href="/visualizar_produtos" className="card">
+                    <a href="/visualizar_produto" className="card">
                         <img 
                             src="/imagens/visualizar_produtos.png" 
                             alt="Visualizar Produtos" 

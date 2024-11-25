@@ -1,5 +1,5 @@
 import React from 'react';
-import './home.css'; // Certifique-se de que o CSS está correto
+import './home.css';
 
 function Home() {
     return (
