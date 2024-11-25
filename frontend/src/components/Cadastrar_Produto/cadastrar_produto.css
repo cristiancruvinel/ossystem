@@ -1,11 +1,12 @@
 body {
-  background-color: white;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
+  margin: 0;
+  background: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .header {
@@ -29,6 +30,11 @@ body {
   color: #ffffff;
 }
 
+.header .links {
+  display: flex; /* Agrupa os links */
+  gap: 15px; /* Adiciona espaço entre os links */
+}
+
 .header a {
   text-decoration: none;
   color: #ffffff;
@@ -40,11 +46,6 @@ body {
 .header a p {
   margin: 0; /* Remove a margem do parágrafo */
   display: inline; /* Faz o parágrafo agir como texto inline */
-}
-
-.header .links {
-  display: flex; /* Agrupa os links */
-  gap: 15px; /* Adiciona espaço entre os links */
 }
 
 .header a:hover {
@@ -63,45 +64,46 @@ body {
   left: 0;
 }
 
-.header h1, .footer p {
+.footer p {
   padding: 10px;
   margin: 0;
   color: #ffffff;
 }
-
 .cadastro-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 80px;
-  padding-bottom: 50px;
+  flex-direction: column;
+  margin-top: 60px; /* Espaço para o header fixo */
+  flex-grow: 1;
 }
+
 
 .cadastro-box h2 {
   text-align: center;
 }
 
-.cadastro-row {
-  display: flex;
-  justify-content: space-between;
+.full-width-input, .cadastro-row {
   margin-bottom: 15px;
-}
-
-.cadastro-row div {
-  width: 48%;
-}
-
-.full-width-input {
   width: 100%;
-  margin-bottom: 15px;
 }
 
-.cadastro-box input {
+.full-width-input label, .cadastro-row label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.full-width-input input, .cadastro-row input[type="radio"] {
   width: 100%;
   padding: 10px;
   border-radius: 4px;
   border: none;
   box-sizing: border-box;
+}
+
+.radio-options {
+  display: flex;
+  justify-content: space-around;
 }
 
 button {
@@ -112,15 +114,15 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 20px;
 }
 
-button:hover {
-  background-color: #45a049;
+button:disabled {
+  background-color: rgb(1, 72, 87);
+  cursor: not-allowed;
 }
 
 .mensagem-sucesso {
   color: #4CAF50;
-  margin-top: 15px;
   text-align: center;
+  margin-top: 10px;
 }

@@ -7,8 +7,8 @@ function Cadastro() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [feedback, setFeedback] = useState('');
 
-    // Função para validar o cadastro
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (password !== confirmPassword) {
@@ -16,9 +16,28 @@ function Cadastro() {
             return;
         }
 
-        // Adicione aqui a lógica para enviar os dados ao backend, se necessário
-        setFeedback('Cadastro realizado com sucesso!');
-        // Redirecionamento ou outras ações após cadastro
+        try {
+            const response = await fetch('http://localhost:5000/api/usuarios', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: username,
+                    senha: password,
+                    tipo_usuario: 'administrador'
+                }),
+            });
+
+            if (response.ok) {
+                setFeedback('Cadastro realizado com sucesso!');
+            } else {
+                const result = await response.json();
+                setFeedback(result.error || 'Erro no cadastro');
+            }
+        } catch (error) {
+            setFeedback('Erro de conexão ao servidor');
+        }
     };
 
     return (
@@ -67,6 +86,7 @@ function Cadastro() {
                 {/* Feedback */}
                 <div id="feedback" className="feedback">
                     {feedback}
+                    
                 </div>
             </div>
 

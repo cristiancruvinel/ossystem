@@ -1,5 +1,5 @@
 import React from 'react';
-import './clientes.css';
+import './tecnicos.css';
 
 const CriarOS = () => {
     return (
@@ -11,7 +11,7 @@ const CriarOS = () => {
                     <a href="/home">
                         <p>HOME</p>
                     </a>
-                    <a href="/login">
+                    <a href="/Login">
                         <p>LOGOUT</p>
                     </a>
                 </div>
@@ -20,21 +20,21 @@ const CriarOS = () => {
             {/* Main Content */}
             <div className="container">
                 <div className="top-row">
-                    <a href="/cadastro_cliente" className="card">
+                    <a href="/cadastro" className="card">
                         <img 
                             src="/imagens/adicionar_cliente.png" 
-                            alt="Adicionar Cliente" 
+                            alt="Cadastrar Novo Tecnico" 
                             className="card-image" 
                         />
-                        <p>Cadastrar Novo Cliente</p>
+                        <p>Cadastrar Novo Tecnico</p>
                     </a>
-                    <a href="/pesquisar_cliente" className="card">
+                    <a href="/visualizar_tecnicos" className="card">
                         <img 
-                            src="/imagens/visualizar_clientes.png" 
-                            alt="Pesquisar Cliente" 
+                            src="/imagens/visualizar_produtos.png" 
+                            alt="Visualizar Tecnicos" 
                             className="card-image" 
                         />
-                        <p>Visualizar Clientes</p>
+                        <p>Visualizar Tecnicos</p>
                     </a>
                 </div>
             </div>
