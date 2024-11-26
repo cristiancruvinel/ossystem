@@ -33,8 +33,8 @@ def get_clientes():
 
 
 @cliente_routes.route('/clientes/<int:id>', methods=['GET'])
-def get_cliente(id_cliente):
-    cliente_instance = cliente.query.get_or_404(id_cliente)
+def get_cliente(id):
+    cliente_instance = cliente.Cliente.query.get_or_404(id)
     return jsonify(cliente_instance.to_dict())
 
 @cliente_routes.route('/clientes', methods=['POST'])
@@ -60,18 +60,18 @@ def create_cliente():
     return jsonify(cliente_instance.to_dict()), 201  
 
 @cliente_routes.route('/clientes/<int:id>', methods=['PUT'])
-def update_cliente(id_cliente):
-    cliente = cliente.query.get_or_404(id_cliente)
+def update_cliente(id):
+    cliente_update = cliente.Cliente.query.get_or_404(id)
     data = request.json
 
-    cliente.email = data.get('email', cliente.email)
-    cliente.telefone = data.get('telefone', cliente.telefone)
-    cliente.endereco = data.get('endereco', cliente.endereco)
-    cliente.cidade = data.get('cidade', cliente.cidade)
-    cliente.estado = data.get('estado', cliente.estado)
+    cliente_update.email = data.get('email', cliente.Cliente.email)
+    cliente_update.telefone = data.get('telefone', cliente.Cliente.telefone)
+    cliente_update.endereco = data.get('endereco', cliente.Cliente.endereco)
+    cliente_update.cidade = data.get('cidade', cliente.Cliente.cidade)
+    cliente_update.estado = data.get('estado', cliente.Cliente.estado)
 
     db.session.commit()
-    return jsonify(cliente.to_dict())
+    return jsonify(cliente_update.to_dict())
 
 @cliente_routes.route('/clientes/<int:id>', methods=['DELETE'])
 def delete_cliente(id_cliente):

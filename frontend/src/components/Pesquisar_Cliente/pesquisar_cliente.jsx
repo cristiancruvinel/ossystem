@@ -11,6 +11,7 @@ const PesquisarCliente = () => {
     try {
       const response = await fetch(`http://localhost:5000/api/clientes?nome=${nome}`);
       const data = await response.json();
+      console.log(data);
       return data;
     } catch (error) {
       console.error('Erro ao buscar clientes: ', error);
@@ -24,9 +25,10 @@ const PesquisarCliente = () => {
     setUsuarios(clientes);
   };
 
-  const handleUserClick = (nome, id) => {
+  const handleUserClick = (id) => {
     
-    navigate(`/editar_cliente/${id}/${nome}`);
+    navigate(`/editar_cliente/${id}`);
+    console.log(id);
   };
 
   return (
@@ -58,9 +60,9 @@ const PesquisarCliente = () => {
       <div className="resultados">
         {usuarios.map((usuario) => (
           <div
-            key={[usuario.id, usuario.nome]}
+            key={usuario.id_cliente}
             className="resultado-card"
-            onClick={() => handleUserClick(usuario.nome, usuario.id)}
+            onClick={() => handleUserClick(usuario.id_cliente)}
           >
             <p>{usuario.nome}</p>
           </div>
