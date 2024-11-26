@@ -20,6 +20,7 @@ import './App.css';
 
 import CadastroCliente from './components/Cadastro_Cliente/cadastro_cliente.jsx';
 import PesquisarCliente from './components/Pesquisar_Cliente/pesquisar_cliente.jsx';
+import EditarCliente from './components/Editar_Cliente/editar_cliente.jsx';
 
 const App = () => {
     return (
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="/informacoes_empresa" element={<InformacoesEmpresa />} />
             <Route path="/cadastro_cliente" element={<CadastroCliente/>}/>"
             <Route path="/pesquisar_cliente" element={<PesquisarCliente/>}/>
+            <Route path="/editar_cliente/:id" element={<EditarCliente/>}/>
         </Routes>
     );
 };

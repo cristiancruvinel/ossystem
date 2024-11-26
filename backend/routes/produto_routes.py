@@ -5,7 +5,7 @@ produto_routes = Blueprint('produto', __name__)
 
 @produto_routes.route('/produtos', methods=['GET'])
 def get_produtos():
-    produtos = produto.query.all()
+    produtos = produto.Produto.query.all()
     return jsonify([produto.to_dict() for produto in produtos])
 
 @produto_routes.route('/produtos/<int:id>', methods=['GET'])
@@ -17,14 +17,14 @@ def get_produto(id_produto):
 def create_produto():
     data = request.json
 
-    produto = produto(
+    novo_produto = produto.Produto(
         nome=data['nome'],
-        preco=data['preco'],
-        tipo_produto=data['tipo_produto']
+        preco=float(data['valor']),
+        tipo_produto=data['tipo']
     )
-    db.session.add(produto)
+    db.session.add(novo_produto)
     db.session.commit()
-    return jsonify(produto.to_dict()), 201
+    return jsonify(novo_produto.to_dict()), 201
 
 @produto_routes.route('/produtos/<int:id>', methods=['PUT'])
 def update_produto(id_produto):

@@ -1,13 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './visualizar_produto.css';
 
 const VisualizarProdutos = () => {
   const [pesquisa, setPesquisa] = useState('');
-  const [produtos, setProdutos] = useState([
-    { id: 1, tipo: 'Produto', nome: 'Placa Mãe ASUS', preco: 'R$ 950,00' },
-    { id: 2, tipo: 'Produto', nome: 'Processador Ryzen 5 5600X', preco: 'R$ 1.300,00' },
-    { id: 3, tipo: 'Serviço', nome: 'Montagem de PC', preco: 'R$ 200,00' },
-  ]);
+  const [produtos, setProdutos] = useState([]);
+
+  useEffect(() => {
+    const fetchProdutos = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/produtos', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json();
+        setProdutos(data);
+      } catch (error) {
+        console.error('Erro ao buscar produtos:', error);
+      }
+    };
+
+    fetchProdutos();
+  }, []);
 
   const produtosFiltrados = produtos.filter((produto) =>
     produto.nome.toLowerCase().includes(pesquisa.toLowerCase())
