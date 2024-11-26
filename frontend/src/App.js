@@ -21,6 +21,9 @@ import './App.css';
 import CadastroCliente from './components/Cadastro_Cliente/cadastro_cliente.jsx';
 import PesquisarCliente from './components/Pesquisar_Cliente/pesquisar_cliente.jsx';
 import EditarCliente from './components/Editar_Cliente/editar_cliente.jsx';
+import AtendimentoOS from './components/Atendimento_OS/atendimento_os.jsx';
+import CadastroTipoObjeto from './components/Cadastro_Tipo_Objeto/cadastro_tipo_Objeto.jsx';
+import VisualizarOSs from './components/Visualizar_OSs/visualizar_Oss.jsx';
 
 const App = () => {
     return (
@@ -45,6 +48,9 @@ const App = () => {
             <Route path="/cadastro_cliente" element={<CadastroCliente/>}/>"
             <Route path="/pesquisar_cliente" element={<PesquisarCliente/>}/>
             <Route path="/editar_cliente/:id" element={<EditarCliente/>}/>
+            <Route path="/atendimento_os" element={<AtendimentoOS/>}/>
+            <Route path="/cadastro_tipo_Objeto" element={<CadastroTipoObjeto/>}/>
+            <Route path="/visualizar_Oss" element={<VisualizarOSs/>}/>
         </Routes>
     );
 };

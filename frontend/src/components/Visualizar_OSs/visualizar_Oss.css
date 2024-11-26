@@ -1,0 +1,90 @@
+.visualizar-oss-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgb(1, 72, 87);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header .links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer {
+  width: 100%;
+  padding: 10px 0;
+  background-color: rgb(1, 72, 87);
+  color: white;
+  text-align: left;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.oss-listagem,
+.scroll-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Espaço entre os botões */
+  width: 90%; /* Alinhar ao novo quadro */
+  max-width: 1200px; /* Limite para telas maiores */
+  margin: 0 auto; /* Centralizar na tela */
+}
+
+.os-card {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%; /* Mesma largura para todos os botões */
+  max-width: 900px; /* Limitar largura para consistência */
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.os-card:hover {
+  background-color: #0056b3;
+}
+
+.visualizar-oss-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.quadro-resultados {
+  width: 90%; /* Quadro maior */
+  max-width: 2000px; /* Limite para telas grandes */
+  background-color: rgba(44, 206, 235, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+}

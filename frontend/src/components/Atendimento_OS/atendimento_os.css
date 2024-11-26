@@ -1,0 +1,82 @@
+.atendimento-os-container {
+  padding: 20px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.quadro {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.solucao-box {
+  display: flex;
+  gap: 10px;
+}
+
+.solucao-box textarea {
+  width: 300px;
+  height: 100px;
+}
+
+.solucao-box input {
+  width: 150px;
+}
+
+.itens-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.itens-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.add-item-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-item-btn:hover {
+  background-color: #45a049;
+}
+
+.valor-total {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.confirm-btn button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.confirm-btn button:hover {
+  background-color: #45a049;
+}
+
+.footer {
+  text-align: left;
+  margin-top: 30px;
+}
