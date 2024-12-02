@@ -63,38 +63,56 @@ const EditarCliente = () => {
   }
 
   return (
+
+    <div className="pesquisar-cliente-container">
+    <header className="header">
+      <h1>Logo:</h1>
+      <div className="links">
+        <a href="/home">
+          <p>HOME</p>
+        </a>
+        <a href="/login">
+          <p>LOGOUT</p>
+        </a>
+      </div>
+    </header>
+
     
     <div className="editar-cliente-container">
       <h2>Editar Cliente</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Nome:</label>
-          <input type="text" name="nome" value={formData.nome} onChange={handleChange} required /> 
+          <input type="text" name="nome" value={formData.nome} onChange={handleChange} readOnly/> 
         </div>
         <div>
           <label>Email:</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+          <input type="email" name="email" value={formData.email} onChange={handleChange}/>
         </div>
         <div>
           <label>Telefone:</label>
-          <input type="tel" name="telefone" value={formData.telefone} onChange={handleChange} required />
+          <input type="tel" name="telefone" value={formData.telefone} onChange={handleChange}/>
         </div>
         <div>
           <label>Endereço:</label>
-          <input type="text" name="endereco" value={formData.endereco} onChange={handleChange} required />
+          <input type="text" name="endereco" value={formData.endereco} onChange={handleChange}/>
         </div>
         <div>
           <label>Cidade:</label>
-          <input type="text" name="cidade" value={formData.cidade} onChange={handleChange} required />
+          <input type="text" name="cidade" value={formData.cidade} onChange={handleChange}/>
         </div>
         <div>
           <label>Estado:</label>
-          <input type="text" name="estado" value={formData.estado} onChange={handleChange} required />
+          <input type="text" name="estado" value={formData.estado} onChange={handleChange}/>
         </div>
         <button type="submit">Atualizar</button>
       </form>
       {mensagem && <p>{mensagem}</p>}
     </div>
+    <footer className="footer">
+        <p>© 2024 / Desenvolvido por Alexandre, Cristian e Luis</p>
+      </footer>
+  </div>
     
   );
 };
