@@ -6,7 +6,7 @@ __pycache__/
 *.pyd
 
 # Ignorar ambiente virtual (se você estiver usando um)
-venv/
+.venv/
 .env/
 
 # Ignorar arquivos do sistema (Exemplo para macOS)
